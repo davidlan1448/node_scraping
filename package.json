@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "instagram-screen-scrape": "^2.0.0",
     "instagram-web-api": "^2.1.0",
+    "puppeteer": "^2.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
     "user-instagram": "^1.0.4",
