@@ -14,7 +14,11 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
-    "request": "^2.88.0"
+    "instagram-screen-scrape": "^2.0.0",
+    "instagram-web-api": "^2.1.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "user-instagram": "^1.0.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

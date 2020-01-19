@@ -5,6 +5,7 @@ const server = require('http').createServer(app);
 const router = require('./routes');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 router(app);
 

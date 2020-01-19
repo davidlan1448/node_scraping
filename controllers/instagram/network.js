@@ -1,13 +1,19 @@
 const express = require('express');
 const router = express.Router();
 
-const { getScrappig } = require('./controller');
+const { getPostsUser } = require('./controller');
 
 /**
- * @description get Scrappig from youtube
+ * @description get Scrappig instagram
  * @method GET
  */
-router.get('/', getScrappig);
+router.get('/:username', getPostsUser);
+
+/**
+ * @description get Scrappig instagram
+ * @method GET
+ */
+// router.post('/login', loginUser);
 
 
 module.exports = router;

@@ -1,8 +1,10 @@
-exports.success = (res, data, message = "Petición éxitosa" ,status, success = true) => {
+exports.success = (res, data, type, sourse, message = "Petición éxitosa" ,status, success = true) => {
     res.status(status || 200).send({
-        data,
         message,
-        success
+        success,
+        type,
+        sourse,
+        data
     })
 }
 
