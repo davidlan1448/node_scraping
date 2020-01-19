@@ -18,7 +18,8 @@
     "instagram-web-api": "^2.1.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
-    "user-instagram": "^1.0.4"
+    "user-instagram": "^1.0.4",
+    "youtube-comment-scraper": "^0.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
