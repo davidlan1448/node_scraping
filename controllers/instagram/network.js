@@ -7,7 +7,7 @@ const { getScrappig } = require('./controller');
  * @description get Scrappig from youtube
  * @method GET
  */
-router.post('/', getScrappig);
+router.get('/', getScrappig);
 
 
 module.exports = router;

@@ -6,6 +6,8 @@ const ytRouter = require('./controllers/youtube/network');
  */
 const routes = (server) => {
     server.use('/yt', ytRouter);
+    /* server.use('/fc', ytRouter);
+    server.use('/ig', ytRouter); */
 }
 
 module.exports = routes;
