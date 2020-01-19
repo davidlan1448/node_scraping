@@ -9,9 +9,8 @@ const Response = require('../../util/Response');
 const getScrappig = async (req, res) => {
     try {
         const { url } = req.body;
-        console.log(url)
         const data = await requestYoutube(url);
-
+        console.log(data)
         Response.success(res, data);
     } catch (error) {
         console.error(error);

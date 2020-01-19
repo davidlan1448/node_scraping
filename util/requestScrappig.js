@@ -7,7 +7,7 @@ const request = require('request');
  * @param {*} url 
  */
 const requestYoutube = (url) => {
-    return new Promise((rej, response) => {
+    return new Promise((response, rej) => {
         request(url, (err, res, body) => {
             //console.log(body);
             if (err || res.statusCode !== 200) {
@@ -21,9 +21,12 @@ const requestYoutube = (url) => {
                 xmlMode: false,
                 decodeEntities: true
             });
-            //console.log($('head').html())
+            console.log($('head').html())
             const title = $('title').text();
-            response(title)
+            response({ 
+                title,
+                url
+            })
         });
     });
 }
