@@ -21,11 +21,15 @@ const requestYoutube = (url) => {
                 xmlMode: false,
                 decodeEntities: true
             });
-            console.log($('head').html())
+            console.log($('body').html())
             const title = $('title').text();
+            const description = $('meta[name=description]').attr('content');
+            const sections = $('#sections').html();
             response({ 
                 title,
-                url
+                url,
+                description,
+                sections
             })
         });
     });

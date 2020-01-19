@@ -12,9 +12,9 @@ const getScrappig = async (req, res) => {
         const data = await requestYoutube(url);
         console.log(data)
         Response.success(res, data);
-    } catch (error) {
-        console.error(error);
-        Response.error(res, 500);
+    } catch (err) {
+        console.error(err);
+        Response.error(res, 500, 0, err.code === "ETIMEDOUT" ? "time expired" : '');
     }
 }
 
