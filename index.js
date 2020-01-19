@@ -1,21 +1,10 @@
-const cherrio = require('cheerio');
-const fs = require('fs');
-const request = require('request');
+const app = express();
+const server = require('http').createServer(app);
+const router = require('./network/routes');
 
-// MODULAR
-request('https://www.youtube.com/watch?v=_Teqg118GbE', (err, res, body) => {
-    //console.log(body);
-    if (err || res.statusCode !== 200) {
-        console.error('ERROR', err); 
-        return;
-    }
-    const $ = cherrio.load(body);
+router(app);
 
-
-
-    const title = $('title').text();
-    const title = $('title').text();
-    console.log(html)
+const PORT = 7000;
+server.listen(PORT, () => {
+    console.log(`Escuchando en el puerto localhost:${PORT}`);
 });
-
-// 
