@@ -10,7 +10,7 @@ const { getPostsUser, getPublication } = require('./controller');
 router.get('/:username', getPostsUser);
 
 /**
- * @description get Scrappig instagram
+ * @description get data from a publication
  * @method POST
  */
 router.post('/publication', getPublication);

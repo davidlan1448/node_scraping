@@ -61,18 +61,22 @@ const getPostsUser = async (req, res) => {
 const getPublication = async (req, res) => {
     try {
         const { url } = req.body;
-        const browser = await puppeteer.launch({ headless: false,devtools: true });
+        const browser = await puppeteer.launch({ headless: false,devtools: true, timeout: 0 });
         const page = await browser.newPage();
         await page.goto(url,
             { waitUntil: 'networkidle2', timeout: 100000 }
         );
+
+        await page.evaluate(()=>{
+            document.querySelector('.dCJp8.afkep').click();
+        });
         
         const data = await page.evaluate(() => {
-            const BASE_URL = "https://www.instagram.com";
+            const BASE_URL = "https://www.instagram.com/";
             const selectElement = (element) => document.querySelector(element);
             const selectElements = (element) => document.querySelectorAll(element);
             const commentsElemnts = Array.from(selectElements('li.gElp9'));
-            console.log(commentsElemnts)
+            
             const comments = commentsElemnts.map((element, index) => {
                 const content = element.getElementsByClassName('C7I1f')[0];
                 
@@ -83,13 +87,14 @@ const getPublication = async (req, res) => {
                     time: content.children[1].children[2].innerText
                 }
             });
-            console.log(comments)
+            
             return {
                 image: selectElement('.FFVAD').getAttribute('src'),
-                likes: selectElements('.sqdOP.yWX7d._8A5w5')[2].getElementsByTagName('span')[0].innerText.trim(),
+                likes: selectElements('.sqdOP.yWX7d._8A5w5')[0].children[0].innerText.trim(),
                 user: {
                     avatar: selectElement('.RR-M-.h5uC0.mrq0Z').children[1].children[0].getAttribute('src'),
-                    user: selectElement('.PQo_0.RqtMr').children[0].innerText.trim()
+                    username: selectElement('.PQo_0.RqtMr').children[0].innerText.trim(),
+                    account: BASE_URL+selectElement('.PQo_0.RqtMr').children[0].innerText.trim()
                 },
                 comments
             };
