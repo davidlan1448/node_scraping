@@ -1,3 +1,4 @@
+const puppeteer = require('puppeteer');
 var rp = require('request-promise');
 const cherrio = require('cheerio');
 const Response = require('../../util/Response');

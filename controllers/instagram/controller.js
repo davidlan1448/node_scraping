@@ -61,7 +61,7 @@ const getPostsUser = async (req, res) => {
 const getPublication = async (req, res) => {
     try {
         const { url } = req.body;
-        const browser = await puppeteer.launch({ headless: false,devtools: true, timeout: 0 });
+        const browser = await puppeteer.launch(/* { headless: false,devtools: true, timeout: 0 } */);
         const page = await browser.newPage();
         await page.goto(url,
             { waitUntil: 'networkidle2', timeout: 100000 }
@@ -87,7 +87,7 @@ const getPublication = async (req, res) => {
                     time: content.children[1].children[2].innerText
                 }
             });
-            
+
             return {
                 image: selectElement('.FFVAD').getAttribute('src'),
                 likes: selectElements('.sqdOP.yWX7d._8A5w5')[0].children[0].innerText.trim(),
