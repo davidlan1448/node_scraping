@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getScrappig, getInfoVideo } = require('./controller');
+const { getScrappig, getComments, getInfoVideo } = require('./controller');
 
 /**
  * @description get Scrappig from youtube
@@ -10,6 +10,12 @@ const { getScrappig, getInfoVideo } = require('./controller');
 router.post('/', getScrappig);
 
 router.post('/comments', getInfoVideo);
+
+/**
+ * @description get comments from youtube
+ * @method POST
+ */
+router.post('/urlComments', getComments);
 
 
 module.exports = router;
