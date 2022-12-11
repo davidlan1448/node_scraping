@@ -13,7 +13,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "instagram-screen-scrape": "^2.0.0",
     "instagram-web-api": "^2.1.0",
     "puppeteer": "^2.0.0",
